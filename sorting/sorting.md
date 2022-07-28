@@ -1,11 +1,14 @@
 # Sorting algorithms
+
 ### insertion sort
   - pick up the next item and move it into its sorted position
   - O(n^2)
+
 ### selection sort
   - find the smallest one and move it to the front
   - lather, rinse, repeat until sorted
   - O(n^2)
+
 ### merge sort
   - We can merge two sorted lists in O(n)
   - if we treat every element as a sorted list of length one
