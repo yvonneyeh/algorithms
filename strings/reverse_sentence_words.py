@@ -13,11 +13,14 @@
 def reverse_sentence(sentence):
     if sentence == "":
         return 0
-    word_list = sentence.split(" ")
+    word_list = sentence.split()
     word_list = word_list[::-1]
     return " ".join(word_list)
 
-    # (word_list.join(" "))
+    # (word_list.join(" ")) -> wrong syntax
+
+def reverse_sentence_from_scratch(sentence):
+
 
 s1 = "i live in a house"
 s2 = ""
@@ -25,6 +28,82 @@ s3 = "   "
 print(reverse_sentence(s1))
 print(reverse_sentence(s2))
 print(reverse_sentence(s3))
+
+
+def str_rev(str, start, end):
+  if str == None or len(str) < 2:
+    return
+
+  while start < end:
+    temp = str[start]
+    str[start] = str[end]
+    str[end] = temp
+
+    start += 1
+    end -= 1
+
+
+def reverse_words(sentence):
+    # Here 'sentence' is a null-terminated string ending with char '\0'.
+
+    # Reverse the string in-place.
+    str_rev(sentence, start, end - 1)
+    start = end
+    
+    if sentence == None or len(sentence) == 0:
+    return
+
+    # To reverse all words in the string, we will first reverse the string.
+    # Now all the words are in the desired location, but in reverse order:
+    # "Hello World" -> "dlroW olleH".
+
+    str_len = len(sentence)
+    str_rev(sentence, 0, str_len - 2)
+
+    # Now, let's iterate the sentence and reverse each word in place.
+    # "dlroW olleH" -> "World Hello"
+
+    start = 0
+    end = 0
+
+    while True:
+
+    # find the start index of a word while skipping spaces.
+    while start < len(sentence) and sentence[start] == ' ':
+      start += 1
+
+    if start == str_len:
+      break
+
+    # find the end index of the word.
+    end = start + 1
+    while end < str_len and sentence[end] != ' ':
+      end += 1
+
+# Runtime complexity = linear, O(n).
+# Position of all the elements in the sentence is changed.
+
+# Memory complexity = constant, O(1).
+
+
+
+def get_array(t):
+  s = array('u', t)
+  return s
+
+
+def print_array(s):
+  i = 0
+  while i != len(s):
+    stdout.write(s[i])
+    i += 1
+  print ()
+
+
+s = get_array('Hello World!')
+print_array(s)
+reverse_words(s)
+print_array(s)
 
 # 151. Reverse Words in a String
 
@@ -66,7 +145,9 @@ Follow-up: If the string data type is mutable in your language, can you solve it
 
 class Solution:
     def reverseWords(self, s: str) -> str:
-        return " ".join(s.strip().split()[::-1])
+        # return " ".join(s.strip().split()[::-1]) # strip() is unnessary bc the split() default separator is any whitespace.
+
+        return " ".join(s.split()[::-1])
 
     # no built in functions
 
@@ -100,6 +181,7 @@ class Solution:
         res = ""
         s = " " + s + " "
         start = end = -1
+        # iterate from back of list starting at 2nd last char, which is not a space
         for i in range(len(s) - 2, 0, -1):
             if s[i + 1] == " " and s[i] != " ":
                 end = i

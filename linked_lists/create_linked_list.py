@@ -11,8 +11,8 @@ The head pointer points to the first node, and the last element of the list poin
 class Node:
     # Constructor
     def __init__(self, data, next=None):
-        self.data = data
-        self.next = next
+        self.data = data  # assign data
+        self.next = next  # initialize next node, default is null
 
 # Join nodes to get a linked list
 class LinkedList:
@@ -31,6 +31,33 @@ class LinkedList:
         else:
             self.head = new_node
 
+    def delete(self, key):
+        # Store head node
+        temp = self.head
+
+        # If head node holds the key to be deleted
+        if temp is not None:
+            if temp.data == key:
+                self.head = temp.next
+                temp = None
+                return
+
+        # Search for the key to be deleted, keep track of the
+        # previous node as we need to change 'prev.next'
+        while temp is not None:
+            if temp.data == key:
+                break
+            prev = temp
+            temp = temp.next
+
+        # if key was not present in linked list
+        if(temp == None):
+            return
+
+        # Unlink the node from linked list
+        prev.next = temp.next
+
+        temp = None
 
 # Creating a single node
 first = Node(3)
