@@ -46,7 +46,9 @@ def longest_substring_with_k_distinct(s, k):
 
     return longest
 
-
+# Time Complexity = O(N), where NN is the number of characters in the input string.
+#
+# Space Complexity = O(K), storing a maximum of K+1 characters in the HashMap.
 
 def main():
     print("araaci", 2, "->", longest_substring_with_k_distinct("araaci", 2))
