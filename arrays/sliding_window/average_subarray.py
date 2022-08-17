@@ -28,7 +28,7 @@ print(find_average_of_subarrays(list_of_nums, K))
 
 def find_average_of_subarrays_with_sliding_window(arr, k):
     result = []
-    window_sum, window_start = 0.0, 0 
+    window_sum, window_start = 0.0, 0
     for window_end in range(len(arr)):
         window_sum += arr[window_end]
         if window_end >= k-1: # arrive at end of current window
