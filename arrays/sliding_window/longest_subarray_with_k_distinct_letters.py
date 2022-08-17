@@ -1,4 +1,4 @@
-def longest_substring_with_k_distinct(str, k):
+def longest_substring_with_k_distinct(s, k):
   # if length of k is greater than the length of the string, return the length of the string
 
   # idea 1 = create set to keep track of distinct characters
@@ -19,21 +19,39 @@ def longest_substring_with_k_distinct(str, k):
 # While shrinking, we’ll decrement the character’s frequency going out of the window and remove it from the HashMap if its frequency becomes zero.
 # At the end of each step, we’ll check if the current window length is the longest so far, and if so, remember its length.
 
-  letter_frequency = {}
-  longest = 0
-  window_start = 0
+    letter_frequency = {}
+    longest = 0
+    window_start = 0
 
-  if k >= len(set(str)):
-    return k
-  for letter in str:
-    if letter not in letter_frequency:
-      letter_frequency[letter] = 1
-    else:
+    if k >= len(set(s)):
+        return k
 
-      substring += letter
-      longest += 1
+    # extend the range [window_start, window_end]
+    for window_end in range(len(s)):
+        right_letter = s[window_end]
+        if right_letter not in letter_frequency:
+            letter_frequency[right_letter] = 0
+        letter_frequency[right_letter] += 1
+
+        # shrink the sliding window, until we are left with 'k' distinct characters in letter_frequency
+        while len(letter_frequency) > k:
+            left_letter = s[window_end]
+            letter_frequency[left_letter] -= 1
+            if letter_frequency[left_letter] == 0:
+                del letter_frequency[left_letter]
+            window_start += 1 # shrink the window
+
+        # remember the maximum length so far
+        longest = max(longest, window_end - window_start + 1)
+
+    return longest
 
 
 
+def main():
+    print("araaci", 2, "->", longest_substring_with_k_distinct("araaci", 2))
+    print("araaci", 1, "->",longest_substring_with_k_distinct("araaci", 1))
+    print("cbbebi", 3, "->",longest_substring_with_k_distinct("cbbebi", 3))
 
-  return longest
+
+main()
