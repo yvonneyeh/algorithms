@@ -17,6 +17,53 @@ def is_palindrome_(s):
 # Time complexity: O(n)
 # Auxiliary Space: O(1)
 
+def isPalindrome(self, s: str) -> bool:
+        new_string = ""
+        for c in s:
+            if c.isalnum():
+                new_string += c.lower()
+
+        return new_string == new_string[::-1]
+
+# Runtime: 80 ms
+# Memory Usage: 14.4 MB
+
+def isPalindrome(self, s: str) -> bool:
+    new_string = []
+    for c in s.lower():
+        if c.isalnum():
+            new_string.append(c)
+
+    return new_string[:] == new_string[::-1]
+# Runtime: 51 ms
+# Memory Usage: 16.3 MB
+
+
+# Using 2 pointers, not using isalnum():
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        l, r = 0, len(s) - 1
+
+        while l < r:
+            while l < r and not self.isAlphaNum(s[l]):
+                l += 1
+            while l < r and not self.isAlphaNum(s[r]):
+                r -= 1
+            if s[l].lower() != s[r].lower():
+                return False
+            l += 1
+            r -= 1
+        return True
+
+
+    def isAlphaNum(self, c):
+        return (
+            ord("A") <= ord(c) <= ord("Z")
+            or ord("a") <= ord(c) <= ord("z")
+            or ord("0") <= ord(c) <= ord("9")
+        )
+
+
 
 # Palindrome permutation:
 
@@ -42,4 +89,3 @@ def is_palindrome_permutation_pythonic(phrase):
     return sum(val % 2 for val in counter.values()) <= 1
 
 def is_palindrome_permutation(s):
-    
