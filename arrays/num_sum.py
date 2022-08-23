@@ -9,8 +9,24 @@ def two_sum(nums: List[int], target: int) -> List[int]:
        else:
            seen[value] = i
 
+# Two Sum II - Input Array Is Sorted
+
+
+def two_sum_sorted(self, numbers: List[int], target: int) -> List[int]:
+        l, r = 0, len(numbers) - 1 # using 2 pointers
+
+        while l < r:
+            current = numbers[l] + numbers[r]
+            if current > target:
+                r -= 1
+            elif current < target:
+                l += 1
+            else:
+                return [l+1, r+1]
+
+
 # Three Sum
-def three_sum(nums: List[int]) -> List[List[int]]:
+
 """
 Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
 
@@ -37,6 +53,40 @@ Input: nums = [0,0,0]
 Output: [[0,0,0]]
 Explanation: The only possible triplet sums up to 0.
 """
+
+
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        # sort array to be able to check for dupes
+        # iterate through list and create a target number
+        # two sum with l/r pointer to find matches
+
+        result = []
+        nums.sort()
+
+        for i, target in enumerate(nums):
+            # if not first num, check if previous number is same, if so, continue
+            # don't reuse values
+            if i > 0 and nums[i] == nums[i-1]:
+                    continue
+
+            l, r = i + 1, len(nums) - 1
+            while l < r:
+                three_sum = target + nums[l] + nums[r]
+                if three_sum > 0:
+                    r -= 1
+                elif three_sum < 0:
+                    l += 1
+                else:
+                    result.append([nums[i], nums[l], nums[r]])
+                    l += 1
+                    while l < r and nums[l] == nums[l-1]:
+                        l += 1
+
+        return result
+
+        
+def three_sum(nums: List[int]) -> List[List[int]]:
     res = set()
 
 	#1. Split nums into three lists: negative numbers, positive numbers, and zeros
