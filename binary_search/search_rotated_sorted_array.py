@@ -31,12 +31,7 @@ Constraints:
 
 """
 
-# 1st approach - couldn't quite figure out how to return the updated index
-# combine 2 of same num list together
-# find min of list
-# keep track of that index
-# binary search
-# return index plus index number
+
 
 
 class Solution:
@@ -63,3 +58,46 @@ class Solution:
                     # target > nums[mid] or target < nums [r]
                     l = mid + 1
         return -1
+
+    # Runtime: 77 ms
+    # Memory Usage: 14.4 MB
+
+    class Solution:
+    def search_clever(self, nums: List[int], target: int) -> int:
+
+        smallest = min(nums)
+        start = nums.index(smallest)
+        double_nums = nums + nums
+
+        low = start
+        high = start + len(nums) - 1
+
+        while low <= high:
+            mid = (low + high) // 2
+            if double_nums[mid] == target:
+                if mid >= len(nums):
+                    return (mid - len(nums))
+                else:
+                    return mid
+            elif double_nums[mid] < target:
+                low = mid + 1
+            else:
+                high = mid - 1
+
+        return -1
+
+    # Runtime: 61 ms
+    # Memory Usage: 14.2 MB
+
+
+    # 1st approach 2022-08-24
+    # couldn't quite figure out how to return the updated index
+    # combine 2 of same num list together
+    # find min of list
+    # keep track of that index
+    # binary search
+    # return index plus index number
+
+    # update 2022-08-25: figured it out!
+    # need to do a check to see if index is out of range of original list
+    # if so, subtract length of original list, else just return midpoint
