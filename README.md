@@ -1,4 +1,4 @@
-Algorithms
+Yvonne's Declassified Tech Interview Study Guide 📝
 ==========
 
 What and how I studied for technical interviews!
@@ -8,7 +8,7 @@ Hi, mentee!
 
 Interviews are hard.
 
-Unfortunately, there are no shortcuts when it comes to learning algorithms and data structures. Grinding LeetCode isn't fun but for interviews, it's best to go BFS and not DFS — practice a wide array of problems rather than diving too deeply into one type of problem. Sometimes you get lucky during an interview and get a question that you've solved before, but usually you'll get a variation of a theme of a question you've seen before. Better to see and practice as many as possible!
+Unfortunately, there are no shortcuts when it comes to learning algorithms and data structures. Grinding LeetCode isn't fun but for interviews, it's best to go BFS and not DFS — practice a wide array of problems rather than diving too deeply into one type of problem. Sometimes you get lucky in an interview and get a question that you've solved before, but usually you'll get a variation of a theme of a question you've seen before. Better to see and practice as many as possible!
 
 This repo contains a non-exhaustive list of concepts and data structures I practiced in preparation for technical interviews.
 
@@ -62,7 +62,7 @@ Most resources are free, a `*` after the name denotes a paid resource.
 
 - ### [Interview Cake](https://www.interviewcake.com/) *
 
-  Some great tips about coding interviews here. I personally just signed up for the free weekly practice problem. The way the problem progresses is great: you get hints to help you understand the concept, until the answer is revealed. Haven't paid for the service before though.
+  The way the problems are laid out is great: you get hints to help you understand the concept, until the answer is revealed. Some great tips about coding interviews here, too. Even if you don't subscribe, you can sign up to get the free weekly practice problem sent to your inbox. Seems to be a small business run by one guy, he also offers a [satisfaction guarantee](https://www.interviewcake.com/upgrade#faq-quant) so you can get a full refund if you don't find the service useful. 
 
 - ### [Tech Interview Handbook](https://www.techinterviewhandbook.org/software-engineering-interview-guide/)
 
