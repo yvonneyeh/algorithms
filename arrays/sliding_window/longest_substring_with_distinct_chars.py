@@ -17,6 +17,25 @@ Output: 3
 Explanation: Longest substrings with distinct characters are "abc" & "cde".
 """
 
+def lengthOfLongestSubstring(s):
+    # keep track of start and end index for substring
+    # use dictionary to save letters we've seen
+    # save longest length, update it by checking if end - right is longer than current
+
+    start = 0
+    seen = set()
+    longest = 0
+
+    for end, letter in enumerate(s):
+        while letter in seen:
+            seen.remove(s[start])
+            start += 1
+        else:
+            seen.add(letter)
+            longest = max(longest, end - start + 1)
+
+    return longest
+
 # sliding window - keep track of start index
 # create dictionary to keep track of letters we've seen
 # loop through indices, if letter not in dictionary, add it
