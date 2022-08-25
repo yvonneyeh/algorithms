@@ -14,21 +14,13 @@ This repo contains a non-exhaustive list of concepts and data structures I pract
 
 ## Resources:
 
-Most resources are free, a `*` after the name denotes a paid resource.
+  Most resources are free, a `*` after the name denotes a paid resource.  
 
 - ### [LeetCode](https://leetcode.com/), [HackerRank](https://www.hackerrank.com/), [CodeSignal](https://codesignal.com/), [CodeWars](https://www.codewars.com/), [Codility](https://www.codility.com/)
 
   Pick your poison. If you're just starting out, I think CodeSignal lays out the problems in the best order (increasing difficulty). LeetCode is better for sorting by question type or finding a specific problem or data structure you want to work on.
 
   Also, there's a LeetCode dupe called [LintCode](https://www.lintcode.com/) that has all the problems, including the problems normally locked behind a paywall, as long as you don't mind the Chinese UI.
-
-- ### [Blind75](https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-75-LeetCode-Questions-to-Save-Your-Time-OaM1orEU)
-
-  A list of 75 of the top LeetCode questions that teach you core concepts and techniques for each type of problem.
-
-  Follow-up resources:
-  - **[Grind75](https://www.techinterviewhandbook.org/grind75)**, a customizable study plan based on Blind75. You can indicate your study preferences and it will recommend the best LeetCode questions for you to practice.
-  - [Spreadsheet](https://docs.google.com/spreadsheets/d/1A2PaQKcdwO_lwxz9bAnxXnIQayCouZP6d-ENrBz_NXc/edit#gid=0) with all Blind75 problems solved, linking to YouTube tutorials made by NeetCode.
 
 
 - ### [Cracking the Coding Interview](https://www.crackingthecodinginterview.com/) (CTCI) *
@@ -38,6 +30,16 @@ Most resources are free, a `*` after the name denotes a paid resource.
     The solutions are written in Java, but you can find the solutions in any language on [CareerCup's GitHub](https://github.com/careercup). Here are the repos for common languages: [Java](https://github.com/careercup/CtCI-6th-Edition), [Python](https://github.com/careercup/CtCI-6th-Edition-Python), [JavaScript](https://github.com/careercup/CtCI-6th-Edition-JavaScript), [C++](https://github.com/careercup/CtCI-6th-Edition-cpp)
 
     _Best for learners that like to highlight and mark up physical text._
+
+- ### [Blind75](https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-75-LeetCode-Questions-to-Save-Your-Time-OaM1orEU)
+
+    A list of 75 of the top LeetCode questions that teach you core concepts and techniques for each type of problem.
+
+    Follow-up resources:
+    - **[Grind75](https://www.techinterviewhandbook.org/grind75)**, a customizable study plan based on Blind75. You can indicate your study preferences and it will recommend the best LeetCode questions for you to practice.
+    - [Spreadsheet](https://docs.google.com/spreadsheets/d/1A2PaQKcdwO_lwxz9bAnxXnIQayCouZP6d-ENrBz_NXc/edit#gid=0) with all Blind75 problems solved, linking to YouTube tutorials made by NeetCode.
+
+
 - ### [NeetCode](https://neetcode.io/)
 
   Similar to Grind75, this is a list of 150 LeetCode questions organized by concept and data structure. Includes helpful videos if you learn best by listening to an explanation and seeing a diagram drawn out as the problem is explained to you.
@@ -62,7 +64,7 @@ Most resources are free, a `*` after the name denotes a paid resource.
 
 - ### [Interview Cake](https://www.interviewcake.com/) *
 
-  The way the problems are laid out is great: you get hints to help you understand the concept, until the answer is revealed. Some great tips about coding interviews here, too. Even if you don't subscribe, you can sign up to get the free weekly practice problem sent to your inbox. Seems to be a small business run by one guy, he also offers a [satisfaction guarantee](https://www.interviewcake.com/upgrade#faq-quant) so you can get a full refund if you don't find the service useful. 
+  The way the problems are laid out is great: you get hints to help you understand the concept, until the answer is revealed. Some great tips about coding interviews here, too. Even if you don't subscribe, you can sign up to get the free weekly practice problem sent to your inbox. Seems to be a small business run by one guy, he also offers a [satisfaction guarantee](https://www.interviewcake.com/upgrade#faq-quant) so you can get a full refund if you don't find the service useful.
 
 - ### [Tech Interview Handbook](https://www.techinterviewhandbook.org/software-engineering-interview-guide/)
 
