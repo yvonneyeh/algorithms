@@ -8,16 +8,15 @@
 
   def reverse(arr):
 
-    left_index  = 0
-    right_index = len(arr) - 1
+    left  = 0
+    right = len(arr) - 1
 
-    while left_index < right_index:
+    while left < right:
         # Swap characters
-        arr[left_index], arr[right_index] = \
-            arr[right_index], arr[left_index]
+        arr[left], arr[right] = arr[right], arr[left]
         # Move towards middle
-        left_index  += 1
-        right_index -= 1
+        left  += 1
+        right -= 1
 
 
 # O(n) time
