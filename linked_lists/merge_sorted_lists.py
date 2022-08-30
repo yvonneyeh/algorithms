@@ -45,6 +45,9 @@ class Solution:
 
 
         while (l1 and l2): # l1 != None and l2 != None
+        # Makes sure neither list is empty!
+        # If one of them is empty, we return the other
+        # If both are nonempty, we check val of each of them to add the smaller one to the result linked list
             if (l1.val < l2.val):
                 tail.next = l1
                 l1 = l1.next
