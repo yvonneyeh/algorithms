@@ -41,6 +41,7 @@ Both list1 and list2 are sorted in non-decreasing order.
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         # create dummy node (starter) as to not insert into empty linked list
+        # `tail` acts as a pointer that we will use to traverse the list
         starter = tail = ListNode(0)
 
 
