@@ -47,18 +47,17 @@ class Solution:
         # increment r while the have is less than need (len t)
         # shrink window while have = need
 
-        if t == "": return ""
+        if t == "" or len(t) > len(s): return ""
 
-        l = 0
-        have = 0
-        need = len(t)
-        target = {}
-        window = {}
-        result = [0, 0]
-        res_len = float("infinity")
+        target, window = {}, {}
 
         for letter in t:
             target[letter] = target.get(letter, 0) + 1
+
+        have, need = 0, len(target)
+        l = 0
+        res_len = float("infinity")
+        result = [0, 0]
 
         for r, letter in enumerate(s):
             window[letter] = window.get(letter, 0) + 1
@@ -66,17 +65,16 @@ class Solution:
             if letter in target and target[letter] == window[letter]:
                 have += 1
 
-            while have == need: # update our result
-
+            while have == need:
                 if (r - l + 1) < res_len:
                     result = [l, r]
                     res_len = r - l + 1
-                # pop from left of window
-                window[s[l]] -= 1
-                if s[l] in target and target[s[l]] > window[s[l]]:
+                    print(res_len)
+                # pop from the left of our window
+                left = s[l]
+                window[left] -= 1
+                if left in target and window[left] < target[left]:
                     have -= 1
                 l += 1
-
         l, r = result
-
-        return s[l:r+1]
+        return s[l : r + 1] if res_len != float("infinity") else ""
