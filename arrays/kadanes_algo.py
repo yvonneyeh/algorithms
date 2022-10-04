@@ -42,3 +42,15 @@ def slidingWindow(nums):
             maxL, maxR = L, R
 
     return [maxL, maxR]
+
+
+# LeetCode 219. Contains Duplicate II
+# Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
+
+def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+    seen = {}
+    for i, value in enumerate(nums):
+        if value in seen and abs(seen[value]-i) <= k:
+            return True
+        seen[value] = i
+    return False
