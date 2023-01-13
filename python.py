@@ -249,3 +249,258 @@ print(arr[0][0], arr[3][3])
 
 # This won't work as you expect it to
 arr = [[0] * 4] * 4
+
+Strings
+# Strings are similar to arrays
+s = "abc"
+print(s[0:2])
+>>> "ab"
+
+# But they are immutable, this won't work
+s[0] = "A"
+
+# This creates a new string
+s += "def"
+print(s)
+>>> "abcdef"
+
+# Valid numeric strings can be converted
+print(int("123") + int("123"))
+>>> 246
+
+# And numbers can be converted to strings
+print(str(123) + str(123))
+>>> "123123"
+
+# In rare cases you may need the ASCII value of a char
+print(ord("a"))
+print(ord("b"))
+>>> 97
+>>> 98
+
+# Combine a list of strings (with an empty string delimitor)
+strings = ["ab", "cd", "ef"]
+print("".join(strings))
+>>> "abcdef"
+Queues
+# Queues (double ended queue)
+from collections import deque
+
+queue = deque()
+queue.append(1)
+queue.append(2)
+print(queue)
+>>> deque([1, 2])
+
+queue.popleft()
+print(queue)
+>>> deque([2])
+
+queue.appendleft(1)
+print(queue)
+>>> deque([1, 2])
+
+queue.pop()
+print(queue)
+>>> deque([1])
+HashSets
+# HashSet
+mySet = set()
+
+mySet.add(1)
+mySet.add(2)
+print(mySet)
+>>> {1, 2}
+print(len(mySet))
+>>> 2
+
+print(1 in mySet)
+>>> True
+print(2 in mySet)
+>>> True
+print(3 in mySet)
+>>> False
+
+mySet.remove(2)
+print(2 in mySet)
+>>> False
+
+# list to set
+print(set([1, 2, 3]))
+>>> {1, 2, 3}
+
+# Set comprehension
+mySet = { i for i in range(5) }
+print(mySet)
+>>> {0, 1, 2, 3, 4}
+HashMaps
+# HashMap (aka dict)
+myMap = {}
+myMap["alice"] = 88
+myMap["bob"] = 77
+print(myMap)
+>>> {"alice": 88, "bob": 77}
+
+print(len(myMap))
+>>> 2
+
+myMap["alice"] = 80
+print(myMap["alice"])
+>>> 80
+
+print("alice" in myMap)
+>>> True
+
+myMap.pop("alice")
+print("alice" in myMap)
+>>> False
+
+myMap = { "alice": 90, "bob": 70 }
+print(myMap)
+>>> { "alice": 90, "bob": 70 }
+
+# Dict comprehension
+myMap = { i: 2*i for i in range(3) }
+print(myMap)
+>>> { 0: 0, 1: 2, 2: 4 }
+
+# Looping through maps
+myMap = { "alice": 90, "bob": 70 }
+for key in myMap:
+    print(key, myMap[key])
+>>> "alice" 90
+>>> "bob" 70
+
+for val in myMap.values():
+    print(val)
+>>> 90
+>>> 70
+
+for key, val in myMap.items():
+    print(key, val)
+>>> "alice" 90
+>>> "bob" 70
+Tuples
+# Tuples are like arrays but immutable
+tup = (1, 2, 3)
+print(tup)
+>>> (1, 2, 3)
+
+print(tup[0])
+>>> 1
+
+print(tup[-1])
+>>> 3
+
+# Can't modify, this won't work
+tup[0] = 0
+
+# Can be used as key for hash map/set
+myMap = { (1,2): 3 }
+print(myMap[(1,2)])
+>>> 3
+
+mySet = set()
+mySet.add((1, 2))
+print((1, 2) in mySet)
+>>> True
+
+# Lists can't be keys
+myMap[[3, 4]] = 5
+Heaps
+import heapq
+
+# under the hood are arrays
+minHeap = []
+heapq.heappush(minHeap, 3)
+heapq.heappush(minHeap, 2)
+heapq.heappush(minHeap, 4)
+
+# Min is always at index 0
+print(minHeap[0])
+>>> 2
+
+while len(minHeap):
+    print(heapq.heappop(minHeap))
+>>> 2 3 4
+
+# No max heaps by default, work around is
+# to use min heap and multiply by -1 when push & pop.
+maxHeap = []
+heapq.heappush(maxHeap, -3)
+heapq.heappush(maxHeap, -2)
+heapq.heappush(maxHeap, -4)
+
+# Max is always at index 0
+print(-1 * maxHeap[0])
+>>> 4
+
+while len(maxHeap):
+    print(-1 * heapq.heappop(maxHeap))
+>>> 4 3 2
+
+# Build heap from initial values
+arr = [2, 1, 8, 4, 5]
+heapq.heapify(arr)
+while arr:
+    print(heapq.heappop(arr))
+>>> 1 2 4 5 8
+Functions
+def myFunc(n, m):
+    return n * m
+
+print(myFunc(3, 4))
+>>> 12
+
+# Nested functions have access to outer variables
+def outer(a, b):
+    c = "c"
+
+    def inner():
+        return a + b + c
+    return inner()
+
+print(outer("a", "b"))
+>>> "abc"
+
+# Can modify objects but not reassign
+# unless using nonlocal keyword
+def double(arr, val):
+    def helper():
+        # Modifying array works
+        for i, n in enumerate(arr):
+            arr[i] *= 2
+
+        # will only modify val in the helper scope
+        # val *= 2
+
+        # this will modify val outside helper scope
+        nonlocal val
+        val *= 2
+    helper()
+    print(arr, val)
+
+nums = [1, 2]
+val = 3
+double(nums, val)
+>>> [2, 4] 6
+Classes
+class MyClass:
+    # Constructor
+    def __init__(self, nums):
+        # Create member variables
+        self.nums = nums
+        self.size = len(nums)
+
+    # self key word required as param
+    def getLength(self):
+        return self.size
+
+    def getDoubleLength(self):
+        return 2 * self.getLength()
+
+myObj = MyClass([1, 2, 3])
+print(myObj.getLength())
+>>> 3
+print(myObj.getDoubleLength())
+>>> 6
