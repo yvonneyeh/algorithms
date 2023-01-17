@@ -1,3 +1,5 @@
+# Python for interviews
+
 # Variables are dynamicly typed
 n = 0
 print('n =', n)
