@@ -11,7 +11,6 @@ def two_sum(nums: List[int], target: int) -> List[int]:
 
 # Two Sum II - Input Array Is Sorted
 
-
 def two_sum_sorted(self, numbers: List[int], target: int) -> List[int]:
         l, r = 0, len(numbers) - 1 # using 2 pointers
 
@@ -85,7 +84,7 @@ class Solution:
 
         return result
 
-        
+
 def three_sum(nums: List[int]) -> List[List[int]]:
     res = set()
 
