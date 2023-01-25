@@ -61,10 +61,55 @@ Methodically analyze and debug issue(s).
 
 
 def printArray(array: list[int]) -> None:
+    for item in array:
+        print(item)
+
 def printEveryOtherValue(array: list[int]) -> None:
+    for i, item in enumerate(array):
+        if i % 2 == 0:
+            print(item)
+
 def printEveryOtherValueSkipFirst(array: list[int]) -> None:
+    for i, item in enumerate(array):
+        if i % 2 == 1:
+            print(item)
+
 def printEveryKth(array: list[int], k: int) -> None:
+    for i, item in enumerate(array):
+        if i % k == 0:
+            print(item)
+
+
 def printReverse(array: list[int]) -> None:
+    for item in array[::-1]:
+        print(item)
+
 def printReverseEveryOtherValue(array: list[int]) -> None:
+    for i, item in enumerate(array[::-1]):
+        if i % 2 == 0:
+            print(item)
+
 def printReverseEveryOtherValueSkipLast(array: list[int]) -> None:
+    for i, item in enumerate(array[::-1]):
+        if i % 2 == 1:
+            print(item)
+
 def printReverseEveryKth(array: list[int], k: int) -> None:
+    for i, item in enumerate(array[::-1]):
+        if i % k == 0:
+            print(item)
+
+
+# Test Cases
+
+testData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+k = 3
+
+printArray(testData); print() # 0,1,2,3,4,5,6,7,8,9,10,
+printEveryOtherValue(testData); print() # 0,2,4,6,8,10,
+printEveryOtherValueSkipFirst(testData); print() # 1,3,5,7,9,
+printEveryKth(testData, k); print() # 0,3,6,9,
+printReverse(testData); print() # 10,9,8,7,6,5,4,3,2,1,0,
+printReverseEveryOtherValue(testData); print() # 10,8,6,4,2,0,
+printReverseEveryOtherValueSkipLast(testData); print() # 9,7,5,3,1,
+printReverseEveryKth(testData, k); print() # 10,7,4,1,
