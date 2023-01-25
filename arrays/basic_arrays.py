@@ -42,8 +42,8 @@ Create examples & test cases:
 What approaches could work? Consider data structures or algorithmic patterns.
 Analyze the space & time complexity.
 Approach 1:
-Time: O()
-Space: O()
+Time: O(N) to iterate through the length N array
+Space: O(1) to store a constant number of variables
 
 
 📆 PLAN
@@ -198,12 +198,18 @@ Create examples & test cases:
 What approaches could work? Consider data structures or algorithmic patterns.
 Analyze the space & time complexity.
 Approach 1:
-Time: O()
-Space: O()
+Time: O(N^2) to go through the length N array up to N times for each index
+Space: O(1) to print the results and not store anything
+
+# What should be printed out when the array is empty or a single element? > Nothing.
+# Should the algorithm output duplicate results if the array has duplicate values? > Yes, there's no uniqueness constraint.
+
 
 
 📆 PLAN
 High-level outline of approach #:
+# You'll need two for-loops. The outer one starts at 0 and the inner one starts at one greater than 0 in most cases. If the inner loop starts at 0 you'll end up with duplicate pairs, some in the opposite order. If the inner loop starts at index i, then you'll include pairs of values at the same index. If the inner loop starts at index i+1 then the output will be pairs of values at distinct indices.
+
 
 
 🛠️ IMPLEMENT
@@ -217,10 +223,6 @@ Methodically analyze and debug issue(s).
 
 '''
 
-# What should be printed out when the array is empty or a single element? > Nothing.
-# Should the algorithm output duplicate results if the array has duplicate values? > Yes, there's no uniqueness constraint.
-
-# You'll need two for-loops. The outer one starts at 0 and the inner one starts at one greater than 0 in most cases. If the inner loop starts at 0 you'll end up with duplicate pairs, some in the opposite order. If the inner loop starts at index i, then you'll include pairs of values at the same index. If the inner loop starts at index i+1 then the output will be pairs of values at distinct indices.
 
 
 # Test considerations
