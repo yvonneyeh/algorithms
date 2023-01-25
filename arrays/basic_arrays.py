@@ -60,44 +60,94 @@ Methodically analyze and debug issue(s).
 '''
 
 
+# def printArray(array: list[int]) -> None:
+#     for item in array:
+#         print(item)
+#
+# def printEveryOtherValue(array: list[int]) -> None:
+#     for i, item in enumerate(array):
+#         if i % 2 == 0:
+#             print(item)
+#
+# def printEveryOtherValueSkipFirst(array: list[int]) -> None:
+#     for i, item in enumerate(array):
+#         if i % 2 == 1:
+#             print(item)
+#
+# def printEveryKth(array: list[int], k: int) -> None:
+#     for i, item in enumerate(array):
+#         if i % k == 0:
+#             print(item)
+#
+#
+# def printReverse(array: list[int]) -> None:
+#     for item in array[::-1]:
+#         print(item)
+#
+# def printReverseEveryOtherValue(array: list[int]) -> None:
+#     for i, item in enumerate(array[::-1]):
+#         if i % 2 == 0:
+#             print(item)
+#
+# def printReverseEveryOtherValueSkipLast(array: list[int]) -> None:
+#     for i, item in enumerate(array[::-1]):
+#         if i % 2 == 1:
+#             print(item)
+#
+# def printReverseEveryKth(array: list[int], k: int) -> None:
+#     for i, item in enumerate(array[::-1]):
+#         if i % k == 0:
+#             print(item)
+
+
 def printArray(array: list[int]) -> None:
-    for item in array:
-        print(item)
+    i = 0
+    while i < len(array):
+        print(array[i])
+        i += 1
 
 def printEveryOtherValue(array: list[int]) -> None:
-    for i, item in enumerate(array):
-        if i % 2 == 0:
-            print(item)
+    i = 0
+    while i < len(array):
+        print(array[i])
+        i += 2
 
 def printEveryOtherValueSkipFirst(array: list[int]) -> None:
-    for i, item in enumerate(array):
-        if i % 2 == 1:
-            print(item)
+    i = 1
+    while i < len(array):
+        print(array[i])
+        i += 2
 
 def printEveryKth(array: list[int], k: int) -> None:
-    for i, item in enumerate(array):
-        if i % k == 0:
-            print(item)
+    i = 0
+    while i < len(array):
+        print(array[i])
+        i += k
 
 
 def printReverse(array: list[int]) -> None:
-    for item in array[::-1]:
-        print(item)
+    i = len(array) - 1
+    while i >= 0:
+        print(array[i])
+        i -= 1
 
 def printReverseEveryOtherValue(array: list[int]) -> None:
-    for i, item in enumerate(array[::-1]):
-        if i % 2 == 0:
-            print(item)
+    i = len(array) - 1
+    while i >= 0:
+        print(array[i])
+        i -= 2
 
 def printReverseEveryOtherValueSkipLast(array: list[int]) -> None:
-    for i, item in enumerate(array[::-1]):
-        if i % 2 == 1:
-            print(item)
+    i = len(array) - 2
+    while i >= 0:
+        print(array[i])
+        i -= 2
 
 def printReverseEveryKth(array: list[int], k: int) -> None:
-    for i, item in enumerate(array[::-1]):
-        if i % k == 0:
-            print(item)
+    i = len(array) - 1
+    while i >= 0:
+        print(array[i])
+        i -= k
 
 
 # Test Cases
