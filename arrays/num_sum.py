@@ -129,3 +129,77 @@ def three_sum(nums: List[int]) -> List[List[int]]:
 				res.add(tuple(sorted([p[i],p[j],target])))
 
 	return res
+
+
+
+/*
+'''
+❓ PROMPT
+Now we're going to apply two different patterns to the same problem and see how the code looks and how it affects the runtime.
+
+The task is to determine if an array contains a pair that adds up to a value, k. The array is sorted ahead of time.
+
+Just like many problems in computer science and software engineering, there are multiple ways to solve the problem, but they often have different time or space complexity, or there are other tradeoffs.
+
+Learning to recognize these decision points is an important step in becoming a strong software engineer.
+
+Patterns and Tools: https://www.loom.com/share/0186a52926dd431bbb25204074812a3a
+
+Example(s)
+[1, 5, 8, 10, 13, 18], k = 15 => true
+
+
+🔎 EXPLORE
+State your assumptions & discoveries:
+
+
+Create examples & test cases:
+
+
+🧠 BRAINSTORM
+What approaches could work? Consider data structures or algorithmic patterns.
+Analyze the space & time complexity.
+Approach 1:
+Time: O()
+Space: O()
+
+
+📆 PLAN
+High-level outline of approach #:
+
+
+🛠️ IMPLEMENT
+function sumToK(array, k) {
+def sumToK(array, k):
+
+
+🧪 VERIFY
+Run your examples & test cases.
+Methodically analyze and debug issue(s).
+
+# empty array
+# 1-element array
+# 2-element array
+# a pair
+# all unique elements
+# a pair can sum up to K
+# multiple pairs can sum up to K
+# no pairs can sum up to K
+
+'''
+*/
+
+
+
+def sumToK(array, k):
+
+    seen = {}
+
+    for i, num in enumerate(array):
+        target = k - num
+        if num not in seen:
+            seen[target] = i
+        else:
+            return True
+
+    return False
