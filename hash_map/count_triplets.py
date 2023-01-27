@@ -59,11 +59,14 @@ def countTriplets(arr, r):
 
     # return result
 
-    num_dictionary = {}
+    num_dictionary = defaultdict(list)
     result = 0
 
     for num in arr:
-        num_dictionary[num] = num_dictionary.get(num, 0) + 1
+        if num not in num_dictionary:
+            num_dictionary[num] = [i]
+        else:
+            num_dictionary[num].append(i)
 
     for key in num_dictionary.keys():
         if key == key * r:
