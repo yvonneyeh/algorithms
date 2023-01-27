@@ -1,10 +1,12 @@
 """
-You are given an array and you need to find number of tripets of indices  such that the elements at those indices are in geometric progression for a given common ratio  and .
+You are given an array and you need to find number of tripets of indices (i,j,k) such that the elements at those indices are in geometric progression for a given common ratio `r` and i < j < k.
 
 Example
 
+arr = [1,4,16,64]
+r = 4
 
-There are  and  at indices  and . Return .
+There are [1,4,6] and [4,16,64] at indices (0,1,2) and (1,2,3). Return 2
 
 Function Description
 
