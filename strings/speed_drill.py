@@ -71,7 +71,7 @@ def solution(string):
     return (' ').join(result)
 
 
-Q. Given a string, find the character that appears most frequently. You may assume there is only one most frequent character.
+# Q. Given a string, find the character that appears most frequently. You may assume there is only one most frequent character.
 
 
 def solution(string):
