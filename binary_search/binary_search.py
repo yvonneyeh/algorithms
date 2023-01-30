@@ -41,3 +41,26 @@ class Solution:
             else:
                 high = mid - 1
         return -1
+
+
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+
+        # left, right pointers = smallest, largest indices
+        # find the midpoint
+        # if mid is smaller than target, move L to look at right side
+        # if mid is larger than target, move R to look at left side
+        # if mid is equal = found target!
+
+        L, R = 0, len(nums) - 1
+
+        while L <= R:
+            mid = (L + R) // 2
+            if nums[mid] < target:
+                L = mid + 1
+            elif nums[mid] > target:
+                R = mid - 1
+            else: # mid = target
+                return mid
+
+        return -1
