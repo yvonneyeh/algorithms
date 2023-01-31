@@ -74,7 +74,6 @@ def generateSequence(target: int) -> list[list[int]]:
     return result
 
 print(generateSequence(10))
-
 print(generateSequence(0) == [[]] or generateSequence(0) == [])
 print(generateSequence(1) == [[1]])
 print(generateSequence(2) == [[2,1], [1]])
