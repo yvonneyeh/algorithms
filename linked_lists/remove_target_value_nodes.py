@@ -20,8 +20,19 @@ def arrayify(head) -> [int]:
     return array
 
 def remove(node: ListNode, target: int) -> ListNode:
-    # Write your code here.
-    pass
+    dummy = ListNode(0, node)
+    previous = dummy
+    current = node
+
+    while current:
+        if current.value == target:
+            previous.next = current.next
+        else:
+            previous = current
+
+        current = current.next
+
+    return dummy.next
 
 # Test Cases
 LL1 = ListNode(4, ListNode(2, ListNode(1, ListNode(1, ListNode(3, ListNode(2, ListNode(2)))))))
