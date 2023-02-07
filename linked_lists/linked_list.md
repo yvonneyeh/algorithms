@@ -1,5 +1,7 @@
 # Linked List
 
+Linked lists (LL), or singly linked lists, are a data structure created from a chain of nodes where each node is an object that contains two fields: a data value and a pointer to the next node. Similar to other objects, the Node class definition defines these two fields. The chaining that creates a LL occurs when the 'next' pointer references another Node object. This chaining of nodes creates a recursive data structure known as a linked list.
+
 ## Worst Case
 - space	O(n)
 - prepend	O(1)
@@ -54,3 +56,44 @@ Most computers have caching systems that make reading from sequential addresses 
 Array items are always located right next to each other in computer memory, but linked list nodes can be scattered all over.
 
 So iterating through a linked list is usually quite a bit slower than iterating through the items in an array, even though they're both theoretically O(n)O(n) time.
+
+
+```
+class ListNode:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+
+# Implementation for Singly Linked List
+class LinkedList:
+    def __init__(self):
+        # Init the list with a 'dummy' node which makes
+        # removing a node from the beginning of list easier.
+        self.head = ListNode(-1)
+        self.tail = self.head
+
+    def insertEnd(self, val):
+        self.tail.next = ListNode(val)
+        self.tail = self.tail.next
+
+    def remove(self, index):
+        i = 0
+        curr = self.head
+        while i < index and curr:
+            i += 1
+            curr = curr.next
+
+        # Remove the node ahead of curr
+        if curr and curr.next:
+            if curr.next == self.tail:
+                self.tail = curr
+            curr.next = curr.next.next
+
+    def print(self):
+        curr = self.head.next
+        while curr:
+            print(curr.val, " -> ", end="")
+            curr = curr.next
+        print()
+
+```
