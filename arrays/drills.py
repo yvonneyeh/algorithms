@@ -6,13 +6,13 @@ def find_most_frequent_element(arr):
     if not arr:
         return None
 
-    num_count = {}
+    value_count = {}
     max_item = None
     max_count = float("-inf")
 
-    for num in arr:
-        num_count[num] = num_count.get(num, 0) + 1
-        if num_count[num] > max_count:
+    for value in arr:
+        value_count[value] = value_count.get(value, 0) + 1
+        if value_count[num] > max_count:
             max_item = num
             max_count = num_count[num]
 
@@ -100,17 +100,17 @@ Follow-up: Given an array with all numbers appearing 3 times and one number appe
 """
 
 def find_triplet(arr):
-    if not arr:
+    if not arr or len(arr) != 5:
         return None
 
     num_count = {}
 
-    for num in arr:
-        num_count[num] = num_count.get(num, 0) + 1
+    for value in arr:
+        value_count[value] = value_count.get(value, 0) + 1
 
-    for num, count in num_count.items():
+    for value, count in value_count.items():
         if count == 3:
-            return num
+            return value
         else:
             return None
 
@@ -119,21 +119,21 @@ print(find_triplet([1,2,1,2]))
 
 
 def find_triplet_with_set(arr):
-    if not arr:
+    if not arr or len(arr) != 5:
         return None
 
-    num_count = set()
+    value_count = set()
 
-    for num in arr:
-        if num in num_count:
-            num_count.remove(num)
+    for value in arr:
+        if value in value_count:
+            value_count.remove(value)
         else:
-            num_count.add(num)
+            value_count.add(value)
 
-    if not num_count:
+    if not value_count:
         return None
 
-    return num_count.pop()
+    return value_count.pop()
 
 print(find_triplet_with_set([1,2,1,2,1]))
 print(find_triplet_with_set([1,2,1,2]))
