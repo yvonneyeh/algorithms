@@ -14,17 +14,23 @@ findMaxIndex([8, 6, 7, 5, 3, 7]) == 0
 
 🔎 EXPLORE
 State your assumptions & discoveries:
-
+Q: Can the array be empty?
+A: No there will always be at least 1 element to avoid having to throw an exception.
 
 Create examples & test cases:
-
+# 1 element array
+# strictly increasing array
+# strictly decreasing array
+# array with some duplicates
+# array with all duplicates
+# array with negative values
 
 🧠 BRAINSTORM
 What approaches could work? Consider data structures or algorithmic patterns.
 Analyze the space & time complexity.
 Approach 1:
-Time: O()
-Space: O()
+Time: O(n) where n is the length of the array. O(n2) If using splicing.
+Space: O(n) to store a call stack frame for each array index. O(n2) If using splicing.
 
 
 📆 PLAN
@@ -43,3 +49,14 @@ Run your examples & test cases.
 Methodically analyze and debug issue(s).
 
 '''
+
+def findMinIndex(arr: list[int]) -> int:
+    if not arr:
+        return -1
+
+
+
+def findMaxIndex(arr: list[int]) -> int:
+
+    if not arr:
+        return -1
