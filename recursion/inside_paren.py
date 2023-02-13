@@ -38,6 +38,7 @@ High-level outline of approach #:
 
 The base case is when the input has the opening parenthesis at the start and the closing parenthesis at the end.
 
+Move where you are looking in the word by 1 in every recursive step depending on if it is a ( or ) open/close. If not, move in both sides by 1.
 
 🛠️ IMPLEMENT
 function parenBit(word) {
