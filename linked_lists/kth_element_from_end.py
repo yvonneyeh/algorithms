@@ -63,3 +63,34 @@ print(kthFromLast(LL1, 3)) # 3
 print(kthFromLast(LL1, 6)) # 13
 print(kthFromLast(LL1, 7)) # -1
 print(kthFromLast(None, 7)) # None
+
+
+# Singly-linked lists are already defined with this interface:
+# class ListNode(object):
+#   def __init__(self, x):
+#     self.value = x
+#     self.next = None
+#
+def solution(head, n):
+
+    if not head:
+        return None
+
+    slow = fast = head
+    dummy = ListNode(0)
+    dummy.next = head
+    prev = dummy
+
+    for i in range(1, n):
+        if not fast:
+            return None
+        fast = fast.next
+
+    while fast:
+        if fast.next == None:
+            prev.next = slow.next
+        prev = slow
+        slow = slow.next
+        fast = fast.next
+
+    return dummy.next

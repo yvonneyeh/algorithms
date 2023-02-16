@@ -469,3 +469,261 @@ def solution(head):
         current = current.next
 
     return True
+
+
+
+"""Q. Given an array, create a linked list with its values in the order they appear in the array."""
+
+# Singly-linked lists are already defined with this interface:
+# class ListNode(object):
+#   def __init__(self, x):
+#     self.value = x
+#     self.next = None
+#
+def solution(array):
+
+    if not array:
+        return None
+
+    sorted(array)
+
+    start = current = ListNode(0)
+
+    for value in array:
+        current.next = ListNode(value)
+        current = current.next
+
+    return start.next
+
+"""Q. Given a linked list, insert a node with the value 0 after each existing node. This should double the length of the original list and every other value should be a 0."""
+
+# Singly-linked lists are already defined with this interface:
+# class ListNode(object):
+#   def __init__(self, x):
+#     self.value = x
+#     self.next = None
+#
+def solution(head):
+
+    if not head:
+        return None
+
+    current = head
+
+    while current:
+        original_next = current.next
+        new = ListNode(0)
+        current.next = new
+        new.next = original_next
+        current = current.next.next
+
+    return head
+
+"""Q. Given a target integer and count integer, create a linked list of length count, where each node has the value target."""
+
+# Singly-linked lists are already defined with this interface:
+# class ListNode(object):
+#   def __init__(self, x):
+#     self.value = x
+#     self.next = None
+#
+def solution(target, count):
+
+    if not count:
+        return None
+
+    start = current = ListNode(0)
+
+    for i in range(count):
+        current.next = ListNode(target)
+        current = current.next
+
+    return start.next
+
+"""Q. Given a linked list of positive integers, find the first element that occurs at least k number of times."""
+
+# Singly-linked lists are already defined with this interface:
+# class ListNode(object):
+#   def __init__(self, x):
+#     self.value = x
+#     self.next = None
+#
+def solution(head, k):
+
+    if not head:
+        return -1
+
+    count = {}
+
+    while head:
+        count[head.value] = count.get(head.value, 0) + 1
+        if count[head.value] == k:
+            return head.value
+        head = head.next
+
+    return -1
+
+"""Q. Given a linked list, limit the number of repetitions to k. Iterate through the linked list, keeping track of how many times the value has been repeated. Once a value has been repeated k target number of times, remove any future instances of that node."""
+
+
+# Singly-linked lists are already defined with this interface:
+# class ListNode(object):
+#   def __init__(self, x):
+#     self.value = x
+#     self.next = None
+#
+def solution(head, k):
+
+    if not head or not k:
+        return None
+
+    count = {}
+    current = head
+    prev = None
+
+    while current:
+        count[current.value] = count.get(current.value, 0) + 1
+        if count[current.value] > k:
+            prev.next = current.next
+        else:
+            prev = current
+        current = current.next
+
+    return head
+
+
+"""Q. Given a linked list, remove all nodes with an odd value from the list."""
+
+# Singly-linked lists are already defined with this interface:
+# class ListNode(object):
+#   def __init__(self, x):
+#     self.value = x
+#     self.next = None
+#
+def solution(head):
+
+    if not head:
+        return None
+
+    current = head
+    prev = None
+
+    while current:
+        if current.value % 2 == 1:
+            if prev is not None:
+                prev.next = current.next
+                current = current.next
+            else:
+                head = head.next
+                current = head
+            continue
+        prev = current
+        current = current.next
+
+    return head
+
+
+"""Remove N from end"""
+# Singly-linked lists are already defined with this interface:
+# class ListNode(object):
+#   def __init__(self, x):
+#     self.value = x
+#     self.next = None
+#
+def solution(head, n):
+
+    if not head:
+        return None
+
+    current = head
+    prev = None
+
+    while current:
+        original_next = current.next
+        current.next = prev
+        prev = current
+        current = current.next
+
+    current = prev
+    prev = None
+
+    for i in range(1, n):
+        if i == n:
+            prev.next = current.next
+            break
+        prev = current
+        current = current.next
+
+
+    current = head
+    prev = None
+
+    while current:
+        original_next = current.next
+        current.next = prev
+        prev = current
+        current = current.next
+
+    return head
+
+
+"""
+Given a linked list of integers, return the sum of every other value, starting with the second.
+"""
+
+# Singly-linked lists are already defined with this interface:
+# class ListNode(object):
+#   def __init__(self, x):
+#     self.value = x
+#     self.next = None
+#
+def solution(head):
+
+    if not head:
+        return 0
+
+    result = 0
+    current = head
+    count = 1
+
+    # while current.next and current.next.next:
+    #     result += current.next.value
+    #     current = current.next.next
+
+    while current:
+        if count % 2 == 0:
+            result += current.value
+        count += 1
+        current = current.next
+
+    return result
+
+"""
+Given a linked list of integers, return the sum of every other value, starting with the second.
+
+[execution time limit] 4 seconds (py3)
+
+[input] linkedlist.integer head
+
+[output] integer
+"""
+
+# Singly-linked lists are already defined with this interface:
+# class ListNode(object):
+#   def __init__(self, x):
+#     self.value = x
+#     self.next = None
+#
+def solution(head):
+
+    if not head:
+        return 0
+
+    result = 0
+    current = head
+
+    while current.next and current.next.next:
+        result += current.next.value
+        current = current.next.next
+
+    return result
