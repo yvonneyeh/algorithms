@@ -29,10 +29,8 @@ def count(node: ListNode) -> int:
 
 # recursive
 def count(node: ListNode) -> int:
-    if not node:
-        return 0
-
-    return count(node.next) + 1
+    # Write your code here.
+    pass
 
 # Test Cases
 LL1 = ListNode(1, ListNode(4, ListNode(5)))
