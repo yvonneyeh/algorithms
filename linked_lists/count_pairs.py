@@ -10,20 +10,40 @@ numPairs(head) == 1
 🔎 EXPLORE
 State your assumptions & discoveries:
 
+Q: Can the list be empty?
+A: Yes.
+Q: What should I do when a number appears an even number of times?
+A: Don't count it as a pair. There have to be exactly 2.
+
 
 Create examples & test cases:
+
+empty list
+1 node list
+2 node list with unique values
+2 node list with the same value
+list with a pair
+list with multiple pairs
+list with multiple duplicates
+list with pairs and multiple duplicates
+list with a number that appears 3 times
+list with a number that appears more than twice and the frequency is divisible by two
 
 
 🧠 BRAINSTORM
 What approaches could work? Consider data structures or algorithmic patterns.
 Analyze the space & time complexity.
 Approach 1:
-Time: O()
-Space: O()
+Time: O(N) to iterate through the length N list
+Space O(N) to count N nodes and their frequencies
 
 
 📆 PLAN
 High-level outline of approach #:
+
+Create a dictionary of counts and a count variable. Iterate through the linked list, incrementing the count of each value as you see it.
+Option 1: Whenever the count becomes 2, increment the count variable. Whenever the count becomes 3, decrement the count variable (because it was overcounted earlier). Note that once the count becomes 3, it doesn't matter to increment the count beyond that.
+Option 2: Create a follow-up loop going through all of the values and count the number of 2's.
 
 
 🛠️ IMPLEMENT
