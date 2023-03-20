@@ -1,15 +1,11 @@
-▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-✏️ Description
-▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+"""
 Q. Given an unsorted linked list, count the number of elements (iteratively or recursively).
 
 Examples:
 • Given a linked list: 1 ➞ 4 ➞ 5 // returns 3
 • Given a linked list: 0 // returns 1
+"""
 
-▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-🟦 Python
-▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
 class ListNode:
     def __init__(self, value = 0, next = None):
         self.value = value
@@ -29,8 +25,10 @@ def count(node: ListNode) -> int:
 
 # recursive
 def count(node: ListNode) -> int:
-    # Write your code here.
-    pass
+    if not node:
+        return 0
+
+    return count(node.next) + 1
 
 # Test Cases
 LL1 = ListNode(1, ListNode(4, ListNode(5)))

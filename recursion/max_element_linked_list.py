@@ -3,7 +3,11 @@ Q. Given an unsorted linked list, find the element with the largest value.
 
 Examples:
 • Given a linked list: 1 ➞ 4 ➞ 5 ➞ 1 // returns 5
-• Given a linked list: 1  // returns 1"""
+• Given a linked list: 1  // returns 1
+
+Approach:
+Call the function recursively on the next node in the list. Return the max between the current node's value and the return value from your recursive call.
+"""
 
 class ListNode:
     def __init__(self, value = 0, next = None):
@@ -18,7 +22,7 @@ def findMax(node: ListNode) -> int:
     maximum = float("-inf")
 
     if node.value > maximum:
-        maximum = node.value
+        return max(maximum, findMax(node.next))
 
     return findMax(node)
 
